@@ -42,6 +42,12 @@ const Navbar = () => {
                     <Link to='/blog' className='mr-5 hover:text-gray-900'>
                         Blog
                     </Link>
+                    <div className="form-control">
+                        <label className="label cursor-pointer">
+
+                            <input type="checkbox" className="toggle" checked />
+                        </label>
+                    </div>
                     {user?.email ? <> <svg onClick={handleLogout} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
                     </svg>

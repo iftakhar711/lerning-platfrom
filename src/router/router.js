@@ -7,6 +7,7 @@ import Register from "../Componenets/Register";
 import Main from "../layout/Main";
 import Courses from "../Componenets/courses/Courses"
 import Detail from "../Componenets/Detail"
+import Premium from "../Componenets/Premium";
 
 export const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/premium',
+                element: <Premium></Premium>
             },
             {
                 path: '/course/:id',
