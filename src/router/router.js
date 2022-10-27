@@ -6,6 +6,8 @@ import Login from "../Componenets/Login";
 import Register from "../Componenets/Register";
 import Main from "../layout/Main";
 import Courses from "../Componenets/courses/Courses"
+import Detail from "../Componenets/Detail"
+
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -31,6 +33,11 @@ export const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/course/:id',
+                element: <Detail></Detail>,
+                loader: ({ params }) => fetch(`https://education-website-server.vercel.app/course/${params.id}`)
             },
             {
                 path: '/allcourse',
