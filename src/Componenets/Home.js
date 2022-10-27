@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -12,7 +13,8 @@ const Home = () => {
                             ― Lailah Gifty Akita, Think Great: Be Great!</p>
                         <div className='flex gap-2'>
                             <button className="btn btn-primary">Get Started</button>
-                            <button className="btn btn-primary">Login</button>
+                            <Link to='/login'><button className="btn btn-primary">Login</button></Link>
+
                         </div>
                     </div>
                 </div>
