@@ -1,8 +1,19 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { AuthContext } from '../context/Context';
 
 
 const Navbar = () => {
+    const { user, logout } = useContext(AuthContext)
+
+    const handleLogout = () => {
+        logout()
+            .then(toast.warning('User logged out!'))
+            .catch(error => console.log(error))
+    }
+
     return (
         <div>
             <div className='container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center'>
@@ -31,29 +42,23 @@ const Navbar = () => {
                     <Link to='/blog' className='mr-5 hover:text-gray-900'>
                         Blog
                     </Link>
+                    {user?.email ? <> <svg onClick={handleLogout} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                    </svg>
+                        <img className=' w-12 h-8 rounded-full' src="https://www.vippng.com/png/detail/355-3554387_create-digital-profile-icon-blue-profile-icon-png.png" alt="" />
+                    </> :
+                        <>
+                            <Link to='/login' className='mr-5 hover:text-gray-900'>
+                                Login
+                            </Link>
+                            <Link to='/register' className='mr-5 hover:text-gray-900'>
+                                Register
+                            </Link>
+                        </>}
 
-                    <button className='inline-flex items-center bg-gray-300 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0'>
-                        Logout
-                        <svg
-                            fill='none'
-                            stroke='currentColor'
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                            strokeWidth='2'
-                            className='w-4 h-4 ml-1'
-                            viewBox='0 0 24 24'
-                        >
-                            <path d='M5 12h14M12 5l7 7-7 7'></path>
-                        </svg>
-                    </button>
 
-                    <Link to='/login' className='mr-5 hover:text-gray-900'>
-                        Login
-                    </Link>
-                    <Link to='/register' className='mr-5 hover:text-gray-900'>
-                        Register
-                    </Link>
-                    <img className=' w-12 h-8 rounded-full' src="https://www.pngitem.com/pimgs/m/35-350426_profile-icon-png-default-profile-picture-png-transparent.png" alt="" />
+
+
                 </nav>
             </div>
         </div >

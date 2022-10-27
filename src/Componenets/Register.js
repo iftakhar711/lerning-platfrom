@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-
 import { AuthContext } from '../context/Context';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
+
+
 const Register = () => {
 
     const navigate = useNavigate()
@@ -62,7 +63,6 @@ const Register = () => {
             <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-stone-200 text-red-600'>
                 <div className='mb-8 text-center'>
                     <h1 className='my-3 text-4xl font-bold'>Register</h1>
-                    <p className='text-sm text-gray-400'>Create a new account</p>
                 </div>
                 <form
                     onSubmit={registerUser}
@@ -107,10 +107,11 @@ const Register = () => {
                                 type='password'
                                 name='password'
                                 id='password'
-                                placeholder='*******'
+                                placeholder='Strong Password(rec)'
                                 className='w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:border-gray-900 text-gray-900'
                             />
                         </div>
+
                     </div>
                     <div className='space-y-2'>
                         <div>
@@ -156,12 +157,9 @@ const Register = () => {
                     <Link to='/login' className='hover:underline text-gray-600'>
                         Sign In
                     </Link>
-
                 </p>
             </div>
-
         </div>
-
     );
 };
 
