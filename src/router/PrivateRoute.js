@@ -3,10 +3,16 @@ import { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../context/Context';
+import Spinner from '../Componenets/Spinner'
 
 const PrivateRoute = ({ children }) => {
-    const { user } = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext)
     const location = useLocation()
+
+    if (loading) {
+        return <Spinner></Spinner>
+    }
+
     if (user && user.uid) {
         return children
     }
