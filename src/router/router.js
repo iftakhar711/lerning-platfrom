@@ -8,6 +8,7 @@ import Main from "../layout/Main";
 import Courses from "../Componenets/courses/Courses"
 import Detail from "../Componenets/Detail"
 import Premium from "../Componenets/Premium";
+import PrivateRoute from "../router/PrivateRoute"
 
 export const router = createBrowserRouter([
     {
@@ -37,7 +38,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/premium',
-                element: <Premium></Premium>
+                element: <PrivateRoute><Premium></Premium></PrivateRoute>
             },
             {
                 path: '/course/:id',
